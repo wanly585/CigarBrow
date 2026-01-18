@@ -341,3 +341,134 @@
         justify-content: center;
     }
 }
+
+
+/* Estilos para mantener la simetría con Navbar y Hero */
+.seccion-productos {
+    height: 100vh; /* Misma altura que el Hero (pantalla completa) */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: transparent; /* O el color que prefieras */
+    position: relative;
+}
+
+.contenedor-alineado {
+    width: 90%;
+    max-width: 1200px; /* Mismo ancho máximo que la Navbar y el Hero */
+    margin: auto;
+    height: 100%; /* Para que el contenedor interno también abarque todo */
+}
+
+/* Ajuste responsivo */
+@media (max-width: 992px) {
+    .seccion-vacia {
+        height: auto;
+        min-height: 100vh; /* Asegura que siga ocupando la pantalla en móvil */
+    }
+}
+
+/* Contenedor para alinear h2 y hr */
+.contenedor-titulo-linea {
+    display: flex;
+    align-items: center; /* Alinea verticalmente al centro */
+    gap: 20px;           /* Espacio entre el texto y la línea */
+    width: 90%;
+    max-width: 1200px;   /* Mismo ancho que tu Navbar y Hero */
+    margin: 40px auto;   /* Margen arriba/abajo y centrado horizontal */
+}
+
+.titulo-formal {
+    font-size: 1.8rem;
+    color: #4e2525;
+    font-weight: 600;
+    white-space: nowrap; /* Evita que el título se rompa en dos líneas */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.linea-estilizada {
+    flex-grow: 1;        /* Hace que la línea ocupe todo el espacio disponible */
+    border: none;
+    height: 3px;         /* Grosor de la línea */
+    background-color: #4e2525; /* Color gris suave formal */
+    position: relative;
+}
+
+/* Detalle extra para la línea (opcional: un puntito al final) */
+.linea-estilizada::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -2px;
+    width: 5px;
+    height: 5px;
+    background-color: #1a1a1a;
+    border-radius: 50%;
+}
+
+/* Adaptación Responsiva */
+@media (max-width: 572px) {
+    .titulo-formal {
+        font-size: 1.4rem; /* Texto un poco más pequeño en móviles */
+    }
+    
+    .contenedor-titulo-linea {
+        gap: 10px; /* Menos espacio en pantallas pequeñas */
+    }
+}
+
+/* carrusel de imagenes */
+
+/* Eliminamos el margen inferior del título para pegar el carrusel */
+.contenedor-titulo-linea {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 60px auto 20px auto; /* 60px arriba, 20px abajo */
+}
+
+.carrusel-integrado {
+    margin-top: 8%;
+    width: 100%;
+    overflow: hidden; /* Evita la barra de scroll horizontal */
+    padding: 10px 0;  /* Un pequeño respiro para las sombras de las fotos */
+}
+
+.lista-imagenes {
+    display: flex;
+    gap: 100px; /* Tu gap de 100px */
+    width: max-content;
+    animation: scroll-infinito 30s linear infinite;
+    will-change: transform; /* Ayuda a que la animación sea fluida */
+}
+
+.imagen-item {
+    width: 150px;       /* 1. Ancho reducido */
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.imagen-item img {
+    width: 90%;
+    height: 180px;      /* 2. Altura reducida proporcionalmente */
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Animación simplificada */
+@keyframes scroll-infinito {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Movemos el 50% de la lista MÁS la mitad del gap para que encaje */
+        transform: translateX(calc(-50% - 50px)); 
+    }
+}
